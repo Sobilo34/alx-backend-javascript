@@ -1,4 +1,3 @@
-const task = 'I prefer const when I can.';
 export function taskFirst() {
     return task;
   }
