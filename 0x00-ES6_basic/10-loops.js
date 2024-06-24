@@ -1,13 +1,12 @@
 #!/usr/bin/node
 
 export default function appendToEachArrayValue(array, appendString) {
-    const updatedArray = [];
+    const myArray = [];
   
     for (const idx of array) {
       const value = idx;
-      updatedArray.push(appendString + value);
+      myArray.push(appendString + value);
     }
   
-    return updatedArray;
+    return myArray;
   }
-  

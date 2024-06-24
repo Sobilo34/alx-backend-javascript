@@ -1,8 +1,5 @@
 #!/usr/bin/node
 
-// Rewrite the getBudgetForCurrentYear function to use ES6 computed property names on the
-// budget object to return the budget for the current year.
-
 function getCurrentYear() {
     const date = new Date();
     return date.getFullYear();
@@ -17,4 +14,3 @@ function getCurrentYear() {
   
     return budget;
   }
-  
