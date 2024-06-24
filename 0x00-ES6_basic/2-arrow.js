@@ -1,7 +1,5 @@
 #!/usr/bin/node
 
-// Arrow functions are a more concise way to write a function in JavaScript.
-
 export default function getNeighborhoodsList() {
   this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
 
