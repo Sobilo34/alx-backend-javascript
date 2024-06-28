@@ -1,19 +1,33 @@
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-export default function handleProfileSignup(firstName, lastName, fileName) {
-  return Promise.allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
-    .then((results) => results.map((result) => {
-      if (result.status === 'fulfilled') {
-        return {
-          status: 'fulfilled',
-          value: result.value,
-        };
-      }
-      return {
-        status: 'rejected',
-        value: result.reason,
-      };
-    }))
-    .catch(() => console.log('Signup system offline'));
+export default async function handleProfileSignup(firstName, lastName, fileName) {
+  const allSettled = [];
+
+  try {
+    const user = await signUpUser(firstName, lastName);
+    allSettled.push({
+      status: 'fulfilled',
+      value: user,
+    });
+  } catch (error) {
+    allSettled.push({
+      status: 'rejected',
+      value: error.toString(),
+    });
+  }
+
+  try {
+    const photo = await uploadPhoto(fileName);
+    allSettled.push({
+      status: 'fulfilled',
+      value: photo,
+    });
+  } catch (error) {
+    allSettled.push({
+      status: 'rejected',
+      value: error.toString(),
+    });
+  }
+  return allSettled;
 }
