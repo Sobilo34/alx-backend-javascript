@@ -1,31 +1,23 @@
 export default function cleanSet(set, startString) {
-  let str = '';
-
-  // Check if the startString is empty, if so, return an empty string
-  if (startString === '') {
+  // Check if set and startString are valid and of the correct types
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
 
-  // Iterate over each item in the set
-  for (const item of set) {
-    // Check if the set is an instance of Set and the startString is a string
-    if (set instanceof Set && typeof startString === 'string') {
-      // Check if the item starts with the startString
-      if (item && item.startsWith(startString)) {
-        // Get the substring of the item after the startString
-        const strSlice = item.slice(startString.length);
+  const parts = [];
 
-        // Add a hyphen to the string if it's not the first item
-        if (str !== '') {
-          str += '-';
-        }
-
-        // Append the substring to the string
-        str += strSlice;
+  // Iterate over the set values
+  for (const value of set.values()) {
+    // Check if value is a string and starts with startString
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      // Remove startString from value and add to parts if not empty and different from value
+      const valueSubStr = value.substring(startString.length);
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
       }
     }
   }
 
-  // Return the final cleaned string
-  return str;
+  // Join cleaned parts with '-'
+  return parts.join('-');
 }

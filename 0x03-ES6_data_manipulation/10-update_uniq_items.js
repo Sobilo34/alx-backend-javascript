@@ -1,15 +1,14 @@
 export default function updateUniqueItems(map) {
-  // check if map is an instance of Map
+  // Check if input is a Map
   if (!(map instanceof Map)) {
     throw new Error('Cannot process');
   }
 
-  // iterate over each item in the map
-  map.forEach((quantity, item) => {
-    // check if the quantity of the item is 1
-    if (quantity === 1) {
-      // update the quantity of the item to 100
-      map.set(item, 100);
+  // Iterate over the map entries
+  map.forEach((value, key) => {
+    // If value is 1, set it to 100
+    if (value === 1) {
+      map.set(key, 100);
     }
   });
 }
