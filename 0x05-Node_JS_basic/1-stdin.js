@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 // Create a program named 1-stdin.js that will be executed through command line:
 
 // It should display the message Welcome to Holberton School, what is your name?
