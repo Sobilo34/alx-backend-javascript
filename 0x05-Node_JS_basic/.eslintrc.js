@@ -22,6 +22,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-console': 'off',
     'no-shadow': 'off',
+    "jest/require-hook": "off",
     'no-restricted-syntax': [
       'error',
       'LabeledStatement',
