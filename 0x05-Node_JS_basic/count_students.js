@@ -1,9 +1,4 @@
 const { readFile } = require('fs');
-/**
- * countStudents - Counts students in a CSV file
- * @param {string} path - Path to the CSV file
- * @returns {Promise<void>}
-*/
 
 function countStudents(fileName) {
   const students = {};
