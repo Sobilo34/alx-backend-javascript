@@ -1,17 +1,22 @@
 // 2-calcul.js
 
-
 function calculateNumber(type, a, b) {
-    if (type === 'SUM') {
+    const roundedA = Math.round(a);
+    const roundedB = Math.round(b);
+  
+    switch (type) {
+      case 'SUM':
         return Math.round(a) + Math.round(b);
-    } else if (type === 'SUBTRACT') {
+      case 'SUBTRACT':
         return Math.round(a) - Math.round(b);
-    } else if (type === 'DIVIDE') {
+      case 'DIVIDE':
         if (Math.round(b) === 0) {
-            return 'Error';
+          return 'Error';
         }
-        return Math.round(a) / Math.round(b);
+        return roundedA / roundedB;
+      default:
+        break;
     }
-}
-
-module.exports = calculateNumber;
+  }
+  
+  module.exports = calculateNumber;
